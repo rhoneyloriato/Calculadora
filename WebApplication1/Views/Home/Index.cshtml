@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<body>
+
+    <p><h2>Calculadora Simples</h2></p>
+    
+    <input type="text" id="valor"/>
+    <table>
+        <tr>
+            <th><input type="button" onclick="Numero(7)" value="7"/></th>
+            <th><input type="button" onclick="Numero(8)" value="8" /></th>
+            <th><input type="button" onclick="Numero(9)" value="9" /></th>
+            <th><input type="button" onclick="Operador('/')" value="/" /></th>
+        </tr>
+        <tr>
+            <th><input type="button" onclick="Numero(4)"value="4" /></th>
+            <th><input type="button" onclick="Numero(5)"value="5" /></th>
+            <th><input type="button" onclick="Numero(6)" value="6" /></th>
+            <th><input type="button" onclick="Operador('*')" value="*" /></th>
+        </tr>
+        <tr>
+            <th><input type="button" onclick="Numero(1)" value="1" /></th>
+            <th><input type="button" onclick="Numero(2)" value="2" /></th>
+            <th><input type="button" onclick="Numero(3)" value="3" /></th>
+            <th><input type="button" onclick="Operador('-')" value="-" /></th>
+        </tr>
+        <tr>
+            <th><input type="button" onclick="Numero(0)" value="0" /></th>
+            <th><input type="button" onclick="Resultado()"value="=" /></th>
+            <th><input type="button" onclick="Limpar()"value="C" /></th>
+            <th><input type="button" onclick="Operador('+')" value="+" /></th>
+        </tr>
+    </table>
+    
+</body>
+
+<script>
+    var num1 = 0;
+    var operacao;
+    var num2 = 1;
+    Numero = function (num) {
+        
+        $("#valor").val($("#valor").val() + num);
+        num2 = $("#valor").val();
+
+    }
+    Limpar = function () {
+        $("#valor").val(" ");
+    }
+    Operador = function (op) {
+        num1 = $("#valor").val();
+        operacao = op;
+        $("#valor").val("");
+    }
+
+    Resultado = function () {
+        var result;
+        if (operacao == '+') {
+            result = num1 + num2;
+            $("#valor").val(result);
+        }
+        else if (operacao == '-') {
+            result = num1 - num2;
+            $("#valor").val(result);
+        }
+        else if (operacao == '*') {
+            result = num1 * num2;
+            $("#valor").val(result);
+        }
+        else if (operacao == '/') {
+            result = num1 / num2;
+            $("#valor").val(result);
+        }
+    }
+
+</script>
